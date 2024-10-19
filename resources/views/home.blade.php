@@ -1,5 +1,3 @@
-home
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +5,13 @@ home
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @vite('resources/css/sidebar.css')
     <title>Note</title>
 </head>
 
 <body>
-    <<nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Bootstrap
-            </a>
-        </div>
-        </nav>
 
-        <h1>Note App
-        </h1>
+    <x-app-layout>
 
 
         <div class="container mt-5">
@@ -46,9 +36,9 @@ home
                                         <h5 class="card-title">{{ $note->title }}</h5>
                                     </a>
                                     <p class="card-text">{{ $note->description }}</p>
+                                    <p class="card-text">{{ $note->content }}</p>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between">
-                                <a href="{{ route('editNote', ['id' => $note->id]) }}" class="btn btn-danger" >Edit</a>
                                     <a href="{{ route('deleteNote', ['id' => $note->id]) }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                     <small class="text-body-secondary">{{ \Carbon\Carbon::parse($note->updated_at)->format('d/m/Y g:i A') }}</small>
                                 </div>
@@ -59,7 +49,7 @@ home
                 </div>
             </div>
         </div>
-
+    </x-app-layout>
 </body>
 
 </html>
