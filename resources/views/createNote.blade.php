@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <x-app-layout>
+ 
         <h1>Note App</h1>
 
         <form action="{{ route('createNoteSubmission') }}" method="POST" id="noteForm">
@@ -36,7 +36,7 @@
         <form action="{{ route('home') }}" method="GET">
             <button type="submit">Back</button>
         </form>
-    </x-app-layout>
+
 
 </body>
 

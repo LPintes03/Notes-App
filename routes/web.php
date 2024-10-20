@@ -10,7 +10,9 @@ use App\Http\Controllers\NoteController;
 
 Route::get('/', [NoteController::class, 'showNotes'])->name('home');
 
-Route::get('/note/create', [NoteController::class, 'create'])->name('createNote');
+
+
+Route::get('/note/create', [NoteController::class, 'createNote'])->name('createNote');
 Route::post('/note/create', [NoteController::class, 'createSubmission'])->name('createNoteSubmission');
 
 Route::get('/note/edit/{id}', [NoteController::class, 'edit'])->name('editNote');

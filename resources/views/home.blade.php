@@ -4,52 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/sidebar.css')
-    <title>Note</title>
+    @vite('resources\css\card.css')
+    <title>Document</title>
 </head>
 
 <body>
-
-    <x-app-layout>
-
-
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-12">
-
-                    @if (session('status'))
-                    <div class="alert alert-success">{{ session('status') }}</div>
-                    @endif
-
-                    <div class="d-flex justify-content-between mb-3">
-                        <h4>My Notes</h4>
-                        <a href="{{ route('createNote') }}" class="btn btn-dark">New Note</a>
-                    </div>
-
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        @foreach ($notes as $note)
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <a href="{{ route('editNote', ['id' => $note->id]) }}" style="color: #493628; text-decoration: none;">
-                                        <h5 class="card-title">{{ $note->title }}</h5>
-                                    </a>
-                                    <p class="card-text">{{ $note->description }}</p>
-                                    <p class="card-text">{{ $note->content }}</p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <a href="{{ route('deleteNote', ['id' => $note->id]) }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-                                    <small class="text-body-secondary">{{ \Carbon\Carbon::parse($note->updated_at)->format('d/m/Y g:i A') }}</small>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
+    <div class="title">Ink Vault</div>
+    <div class="date"> <a href="{{ route('createNote') }}" class="btn btn-dark" style="color: #493628; text-decoration: none;">New Note</a></div>
+    <div class="columns -mt-2">
+        @foreach ($notes as $index => $note)
+       
+            <div>
+            <h1>{{ $note->title }}</h1>
+            <p>{{ $note->description }}</p>
+            <p>{{ $note->content }}</p>
+            <img src="https://static.codepen.io/assets/marketing/challenges/amd-pacman-jpg-603c12d2572aceb1bfbf7cb8e426160dfb4cce641bc01bfe7a42a7829fcbca41.jpg">
+            <div class="d-flex justify-content-between">
+                <a href="{{ route('editNote', ['id' => $note->id]) }}" style="color: #493628; text-decoration: none;">View</a>
+                <a href="{{ route('deleteNote', ['id' => $note->id]) }}" class="btn btn-danger" onclick="return confirm('Are you sure?')"style="color: #493628; text-decoration: none;">Delete</a>
+                <small class="text-body-secondary">{{ \Carbon\Carbon::parse($note->updated_at)->format('d/m/Y g:i A') }}</small>
             </div>
-        </div>
-    </x-app-layout>
+    </div>
+
+   
+    @endforeach
+    </div>
+    <div class="footer">Codepen Times</div>
 </body>
 
 </html>

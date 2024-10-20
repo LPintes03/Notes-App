@@ -16,8 +16,13 @@ class NoteController extends Controller
         return view('home', ['notes' => $notes]);
     }
 
-    
-    public function create()
+    public function viewNote(Request $request){ 
+        $note = Note::findOrFail($request->id); 
+        return view('view', ['note' => $note]); 
+  } 
+
+
+    public function createNote()
     {
         return view('createNote');
     }
@@ -40,6 +45,8 @@ class NoteController extends Controller
             'description' => $validated['description'],
             'content' => $validated['content']
         ]);
+
+        
     
         return redirect()->route('home')->with('status', 'Note Saved.');
     }
