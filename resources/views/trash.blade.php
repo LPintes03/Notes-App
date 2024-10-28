@@ -194,7 +194,7 @@
             ev.preventDefault();
 
             swal({
-                title: "Are you sure to restore this post?",
+                title: "Are you sure to delete this post?",
                 text: "You will not be able to revert this!",
                 icon: "warning",
                 buttons: true,

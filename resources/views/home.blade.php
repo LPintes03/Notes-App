@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CKEditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -28,7 +26,6 @@
     <!-- Vite CSS -->
     @vite('resources/css/home.css')
     @vite('resources/css/theme.css')
-    @vite('resources/css/sidebar.css')
     @vite('resources/css/notification.css')
 
     <title>Ink Vault</title>
@@ -110,8 +107,6 @@
     </div>
 
     <script>
-        // theme.js
-
         // theme.js
 
         function myFunction() {
@@ -203,7 +198,7 @@
 
             swal({
                 title: "Are you sure to delete this post?",
-                text: "You will not be able to revert this!",
+                text: "This note will move to the trash!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

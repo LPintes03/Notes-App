@@ -97,12 +97,12 @@ class NoteController extends Controller
         // Check if the action is 'forceDelete'
         if ($request->input('action') === 'forceDelete') {
             $note->forceDelete();
-            return redirect()->route('home')->with('status', 'Note Permanently Deleted');
+            return redirect()->route('home')->with('status', 'Note Deleted');
         }
 
         // Soft delete the note
         $note->delete();
-        return redirect()->route('home')->with('status', 'Note Soft Deleted');
+        return redirect()->route('home')->with('status', 'Note Trashed');
     }
 
 
