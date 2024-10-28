@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=PT+Serif:wght@400;700&display=swap");
 
 :root {
-    --background-color: rgb(235, 234, 231);
-    --text-color: #000;
     --border-color: black;
-    --content-bg-hover: #f0f0f0;
 }
 
 body {
@@ -19,65 +16,45 @@ body {
 .title {
     font-size: 4.5em;
     font-weight: bold;
-    height: 120px;
-    margin-top: 25px;
-    padding-left: 10px;
-    padding-top: 10px;
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 10px;
     border-bottom: 10px double var(--border-color);
     font-family: "Libre Baskerville", serif;
-    resize: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; /* Ensures text stays on one line and is truncated */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0; /* Sticks at the top of the viewport */
+    background-color: white; /* Add background color if needed */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-.sub-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    height: 60px;
-    width: 100%;
-    text-align: left;
-    padding-left: 10px;
-    padding-top: 10px;
-    border-bottom: 10px double var(--border-color);
-    font-family: "Libre Baskerville", serif;
-    resize: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; /* Ensures text stays on one line and is truncated */
+.date {
+    font: 1em "PT Serif Mono", monospace;
+    text-align: center;
+    width: 280px;
+    margin: 20px auto;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
 }
 
-.content {
-    font-size: 1.5em;
-    width: 100%;
-    height: 800px;
-    padding: 5px;
-    border-bottom: 10px double var(--border-color);
-    font-family: "Libre Baskerville", serif;
-    resize: none;
-}
-
-.theme {
-    height: 20px;
-    width: 20px;
-    padding-top: 8px;
-    margin: auto;
+.right {
     float: right;
+    padding:20px; /* Increase padding */
+    font-size: 1.2em; /* Increase font size */
+    color: #333;
 }
 
-.theme:hover {
-    cursor: pointer;
-}
 
-.columns {
+.view {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px auto;
+    margin-top: 10p;
+    margin-left: 200px;
     padding: 0 10px;
 }
 
-.columns > div {
+.view > div {
     flex: 1 1 calc(25% - 40px); /* Four columns */
     margin: 10px;
     padding: 15px;
@@ -88,11 +65,44 @@ body {
     box-sizing: border-box;
 }
 
-.columns div p {
+.view div p {
     font-family: "PT Serif", sans-serif;
     text-align: left;
     margin: 0;
     padding: 5px 0;
+}
+.submit {
+    border: none;
+    float: right;
+    padding:10px; /* Increase padding */
+    font-family: "PT Serif", sans-serif;
+    font-size: 1em; /* Increase font size */
+    background-color: #d1d1d1;
+    color: #333;
+}
+
+.description{
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+textarea {
+    resize: none;
+    width: 80%;
+    height: 800px;
+    padding: 10px;
+    border: none;
+    background-color: #e9e9e9;
+    font-size: 15px;
+}
+
+.h1 {
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 2.5em;
+    font-family: "Libre Baskerville", serif;
+    margin-bottom: 10px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -100,57 +110,33 @@ body {
     text-overflow: ellipsis;
 }
 
-h1 {
-    font-size: 2.5em;
-    font-family: "Libre Baskerville", serif;
-    margin-bottom: 10px;
+.scroll-container {
+    resize: none;
+    width: 80%;
+    height: 800px;
+    border: none;
+    background-color: rgb(235, 234, 231);
+    /* this displays creates a scrollbar on the element only when the content exceeds the max height of the element */
+    overflow-y: auto;
+    /* this displays creates a scrollbar on the element at any height */
+    /*   overflow-y: scroll; */
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
-h1:hover {
-    font-size: 2.8em;
-    color: #d0b8a8;
-    transition: all 0.5s ease-out;
-}
-/* CSS */
-.button-54 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.scroll-container::-webkit-scrollbar {
+    display: none;
 }
 
-.button-54:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
+.content-footer {
+    position: relative;
+    text-align: right;
+    font-size: 1.5em;
 }
 
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
-}
-
-img {
-    width: 100%;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    image-rendering: pixelated;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/* .footer {
+.footer {
     text-align: center;
     font-size: 1em;
     font-weight: bold;
@@ -158,31 +144,180 @@ img {
     padding: 5px 0;
     border-top: 3px double var(--border-color);
     border-bottom: 3px double var(--border-color);
-} */
-
-/* Responsive Design */
-@media only screen and (max-width: 1279px) {
-    .columns > div {
-        flex: 1 1 calc(33.33% - 40px); /* Three columns */
-    }
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    width: 200px;
+    background-color: white;
+    position: fixed;
+    display: block;
+    height: 100%;
+    overflow: auto;
+    z-index: 10; /* Ensures sidebar stays above content */
+    left: 0; /* Aligns the sidebar to the right side */
+}
+
+/* Sidebar links */
+.sidebar a {
+    margin-top: 50px;
+    text-align: left;
+    display: block;
+    color: black;
+    margin: 10px;
+    padding: 16px;
+    text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: #adadad;
+    color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.main-content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+    z-index: 1; /* Places content behind the sidebar when necessary */
+    position: relative;
+}
+
+#footer {
+    position: sticky;
+    padding: 5px;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: rgb(55, 61, 55);
+    color: white;
+    font-size: 30px;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically (if needed) */
+}
+
+
+/* Three columns layout for screens between 1024px and 1279px */
+
+/* Two columns layout for screens between 700px and 1023px */
 @media only screen and (max-width: 1023px) {
-    .columns > div {
-        flex: 1 1 calc(50% - 40px); /* Two columns */
+   
+    .content {
+        font-size: 0.5rem; 
     }
+
 }
 
-@media only screen and (max-width: 767px) {
-    .columns > div {
+/* On screens that are less than 699px wide, position the sidebar as a footer */
+@media screen and (max-width: 975px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        color: #d1d1d1;
+        background-color: #333; /* Optional styling */
+        z-index: 10;
+        display: flex;
+        justify-content: center; /* Centers the content horizontally */
+        align-items: center; /* Centers the content vertically (if needed) */
+    }
+    .sidebar a {
+        color: #d1d1d1;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        padding: 10px;
+    }
+    div.main-content {
+        margin-bottom: 50px; /* Adds spacing above the sidebar */
+        z-index: 1; /* Ensures content can scroll behind the sidebar */
+    }
+
+    .content > div {
         flex: 1 1 calc(100% - 40px); /* One column */
     }
+    .view {
+        margin-left: 0;
+    }
+
+
 }
 
-/* Dark Mode */
-body.dark-mode {
-    --background-color: #1e1e1e;
-    --text-color: #eaeaea;
-    --border-color: #4a4a4a;
-    --content-bg-hover: #333;
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 775px) {
+
+    .sidebar a span { /* Hide the text but keep the icons */
+        display: none;
+    }
+    
+    .sidebar a i { /* Ensure that icons (e.g., from FontAwesome) are visible */
+        font-size: 30px; /* Adjust size as necessary */
+        color: #d1d1d1;
+    }
+
+    
+    .content {
+        font-size: smaller;
+    }
+
+}
+
+
+
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 585px) {
+    .title {
+        font-size: 70px;
+    }
+   
+}
+
+@media screen and (max-width: 383px) {
+    .title {
+        font-size: 60px;
+    }
+
+    
+
+
+    .content {
+       font-size: small;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        color: #d1d1d1;
+        background-color: #333; /* Optional styling */
+        z-index: 10;
+        display: flex;
+        justify-content: center; /* Centers the content horizontally */
+        align-items: center; /* Centers the content vertically (if needed) */
+    }
+    .sidebar a {
+        color: #d1d1d1;
+        font-size: 10px;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        padding: 10px;
+    }
+
+  
 }

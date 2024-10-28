@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CKEditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-
-    <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+   <!-- SweetAlert2 -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Icons -->
@@ -58,8 +56,7 @@
 
     <div class="title">Ink Vault</div>
     <div class="sidebar">
-        <a href="{{ route('home') }}" class="w3-bar-item w3-button"><i class='bx bxs-heart'></i><span>Home</span></a>
-        <a href="#" class="w3-bar-item w3-button"><i class='bx bxs-heart'></i><span>Favorites</span></a>
+        <a href="{{ route('home') }}" class="w3-bar-item w3-button"><i class='bx bxs-home'></i></i><span>Home</span></a>
         <a href="#" class="active"><i class='bx bxs-trash'></i><span>Trash</span></a>
         <a class="theme" onclick="myFunction()"><i class='bx bx-palette'></i><span>Theme</span></a>
     </div>

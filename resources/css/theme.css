@@ -11,15 +11,35 @@ body {
 }
 
 .dark-mode {
-    background-color: #677D6A;
+    background-color: #3C3D37;
     color: white;
 }
 
 .dark-mode .title {
     border-bottom: 10px double;
-    background-color: #677D6A;
+    background-color: #3C3D37;
     border-color: white;
     
+}
+
+.dark-mode .sidebar {
+    border-right:1px solid #555;
+    background-color: #2a2b2a;
+    color: #e7e4e4;
+}
+
+.dark-mode .sidebar a{
+    color: #ffffff;
+}
+
+.sidebar a.active {
+    background-color: #5c5c5a;
+    color: #ffffff;
+}
+
+.dark-mode .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: rgb(219, 216, 216);
 }
 
 
@@ -34,7 +54,7 @@ body {
 }
 
 .dark-mode .content:hover {
-    background-color: #40534C;
+    background-color: #1E201E;
 }
 
 .dark-mode .button:hover {
@@ -56,14 +76,4 @@ li {
     background-color: #444444; /* White background for the dropdown */
     border: 1px solid #f8f8f8; /* Border around the dropdown */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
-}
-
-.dark-mode .sidebar a {
-    color: #000;
-}
-
-/* Links on mouse-over */
-.dark-mode .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
 }

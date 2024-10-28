@@ -403,8 +403,8 @@ li {
 
 /* Active/current link */
 .sidebar a.active {
-    background-color: #04aa6d;
-    color: white;
+    background-color: #E2DFD0;
+    color: #3C3D37;
 }
 
 /* Links on mouse-over */

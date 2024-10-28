@@ -61,7 +61,6 @@
     <div class="title">Ink Vault </div>
     <div class="sidebar">
         <a href="{{ route('home') }}" class="active"><i class='bx bxs-home'></i><span>Home</span></a>
-        <a href="#" class="w3-bar-item w3-button"><i class='bx bxs-heart'></i><span>Favorites</span></a>
         <a href="{{ route('viewTrash', ['id' ]) }}" class="w3-bar-item w3-button"><i class='bx bxs-trash'></i><span>Trash</span></a>
         <a id="theme-toggle" class="theme" onclick="myFunction()"><i class='bx bx-palette'></i><span>Theme</span></a>
     </div>
