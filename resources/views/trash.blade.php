@@ -56,14 +56,12 @@
     </script>
     @endif
 
-
-
-    <div class="title">Ink Vault </div>
+    <div class="title">Ink Vault</div>
     <div class="sidebar">
-        <a href="{{ route('home') }}" class="active"><i class='bx bxs-home'></i><span>Home</span></a>
+        <a href="{{ route('home') }}" class="w3-bar-item w3-button"><i class='bx bxs-heart'></i><span>Home</span></a>
         <a href="#" class="w3-bar-item w3-button"><i class='bx bxs-heart'></i><span>Favorites</span></a>
-        <a href="{{ route('viewTrash', ['id' ]) }}" class="w3-bar-item w3-button"><i class='bx bxs-trash'></i><span>Trash</span></a>
-        <a id="theme-toggle" class="theme" onclick="myFunction()"><i class='bx bx-palette'></i><span>Theme</span></a>
+        <a href="#" class="active"><i class='bx bxs-trash'></i><span>Trash</span></a>
+        <a class="theme" onclick="myFunction()"><i class='bx bx-palette'></i><span>Theme</span></a>
     </div>
     <div id="main-content">
         <form action="/action_page.php">
@@ -71,37 +69,38 @@
             <div id="search_list"></div>
         </form>
 
-
-        <div> <a href="{{ route('createNote') }}" class="button_plus style="></a></div>
-
-
         <div class="columns -mt-2">
 
-            @foreach ($notes as $index => $note)
+            @foreach ($notes as $note)
             <div class="content">
                 <ul class="nav">
                     <div class="kebab">
                         <figure></figure>
                         <figure class="middle"></figure>
-                        <p class="cross">x</p>
+                        <p class="cross"></p>
                         <figure></figure>
                         <ul class="dropdown">
-                            <li><a href="{{ route('editNote', ['id' => $note->id]) }}"><i class='bx bxs-edit'></i>Edit</a></li>
+                            <!-- Restore Note Link -->
+                            <li><a href="{{ route('restoreNote', ['id' => $note->id]) }}"><i class='bx bx-reset'></i>Restore</a></li>
+                            <!-- Form for Force Delete -->
                             <li>
-                                <form id="delete-form-{{ $note->id }}" action="{{ route('deleteNote', ['id' => $note->id]) }}" method="POST">
+                                <form id="delete-form-{{ $note->id }}" action="{{ route('deleteNote', ['id' => $note->id]) }}" method="POST" style="display:none;">
                                     @csrf
                                     @method('DELETE')
+                                    <input type="hidden" name="action" value="forceDelete">
                                 </form>
-                                <a class="delete" onclick="confirmation(event, '{{ $note->id }}')"><i class='bx bxs-trash-alt'></i> Delete </a>
+                                <a href="#" onclick="confirmation(event, '{{ $note->id }}')"><i class='bx bxs-trash-alt'></i> Delete</a>
                             </li>
 
+                            </li>
                         </ul>
                     </div>
                 </ul>
-                <small class="date">{{ \Carbon\Carbon::parse($note->updated_at)->format('F/j/Y g:i A') }}</small>
-                <h1> <a href="{{ route('viewNote', ['id' => $note->id]) }}">{{ $note->title }}</a></h1>
+
+                <small class="date">{{ \Carbon\Carbon::parse($note->deleted_at)->format('F/j/Y g:i A') }}</small>
+                <h1>{{ $note->title }} </h1>
                 <p>{{ $note->description }}</p>
-                <p>{{ $note->content }}</p>
+                <p>{{ $note->content }} </p>
 
             </div>
             @endforeach
@@ -111,8 +110,6 @@
     </div>
 
     <script>
-        // theme.js
-
         // theme.js
 
         function myFunction() {
@@ -137,9 +134,6 @@
         // Load the theme when the page is loaded
         document.addEventListener("DOMContentLoaded", loadTheme);
 
-
-        // Load the theme when the page is loaded
-        document.addEventListener("DOMContentLoaded", loadTheme);
 
         $(document).ready(function() {
             $('#search').on('keyup', function() {
@@ -203,14 +197,14 @@
             ev.preventDefault();
 
             swal({
-                title: "Are you sure to delete this post?",
+                title: "Are you sure to restore this post?",
                 text: "You will not be able to revert this!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    // Submit the form associated with the note ID
+                    // Submit the form for the specified note ID
                     document.getElementById('delete-form-' + noteId).submit();
                 }
             });

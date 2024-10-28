@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=PT+Serif:wght@400;700&display=swap");
+
+:root {
+    --background-color: rgb(235, 234, 231);
+    --text-color: #000;
+    --border-color: black;
+    --content-bg-hover: #f0f0f0;
+}
+
+body {
+    font-family: "PT Serif", serif;
+    background-color: var(--background-color);
+    background-image: url("https://i.imgur.com/https://www.fontspace.com/typewriter-inked-font-f85473.png");
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 4.5em;
+    font-weight: bold;
+    height: 120px;
+    margin-top: 25px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-bottom: 10px double var(--border-color);
+    font-family: "Libre Baskerville", serif;
+    resize: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Ensures text stays on one line and is truncated */
+}
+
+.sub-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 60px;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-bottom: 10px double var(--border-color);
+    font-family: "Libre Baskerville", serif;
+    resize: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Ensures text stays on one line and is truncated */
+}
+
+.content {
+    font-size: 1.5em;
+    width: 100%;
+    height: 800px;
+    padding: 5px;
+    border-bottom: 10px double var(--border-color);
+    font-family: "Libre Baskerville", serif;
+    resize: none;
+}
+
+.theme {
+    height: 20px;
+    width: 20px;
+    padding-top: 8px;
+    margin: auto;
+    float: right;
+}
+
+.theme:hover {
+    cursor: pointer;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.columns > div {
+    flex: 1 1 calc(25% - 40px); /* Four columns */
+    margin: 10px;
+    padding: 15px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.columns div p {
+    font-family: "PT Serif", sans-serif;
+    text-align: left;
+    margin: 0;
+    padding: 5px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: "Libre Baskerville", serif;
+    margin-bottom: 10px;
+}
+
+h1:hover {
+    font-size: 2.8em;
+    color: #d0b8a8;
+    transition: all 0.5s ease-out;
+}
+/* CSS */
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
+
+img {
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    image-rendering: pixelated;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* .footer {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 5px 0;
+    border-top: 3px double var(--border-color);
+    border-bottom: 3px double var(--border-color);
+} */
+
+/* Responsive Design */
+@media only screen and (max-width: 1279px) {
+    .columns > div {
+        flex: 1 1 calc(33.33% - 40px); /* Three columns */
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .columns > div {
+        flex: 1 1 calc(50% - 40px); /* Two columns */
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .columns > div {
+        flex: 1 1 calc(100% - 40px); /* One column */
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #1e1e1e;
+    --text-color: #eaeaea;
+    --border-color: #4a4a4a;
+    --content-bg-hover: #333;
+}

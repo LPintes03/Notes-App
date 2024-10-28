@@ -11,21 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->text('content');
-            $table->timestamps();
+        Schema::table('notes', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
-        
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::table('notes', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

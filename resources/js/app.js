@@ -38,3 +38,34 @@ ${noteText}</textarea
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
 }
+
+// delete confirmation
+
+function confirmation(ev) {
+  ev.preventDefault();
+  var urlToRedirect = ev.currentTarget.getAttribute('href');
+  console.log(urlToRedirect);
+  swal({
+          title: "Are you sure to Delete this post",
+          text: "You will not be able to revert this!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willCancel) => {
+          if (willCancel) {
+
+              window.location.href = urlToRedirect;
+          }
+
+      });
+}
+
+
+window.onload = () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme && savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      document.querySelector(".theme").textContent = "Switch to Light Mode";
+  }
+};

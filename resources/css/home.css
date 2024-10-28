@@ -1,0 +1,619 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=PT+Serif:wght@400;700&display=swap");
+
+/* Root variables for easy theme customization */
+:root {
+    --text-color: #000000;
+    --border-color: black;
+    --content-bg-hover: #d1d1d1;
+}
+
+/* Body styles */
+body {
+    font-family: "PT Serif", serif;
+    background-color: var(--background-color);
+    background-image: url("https://i.imgur.com/your-image.png"); /* Corrected URL */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation styles */
+
+.topnav input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.topnav a.active {
+    background-color: #3e3e3e;
+    color: white;
+}
+
+.topnav .search-container {
+    float: right;
+}
+
+.topnav input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+
+#openNav {
+    height: 100%;
+}
+
+/* Ink Vault*/
+.title {
+    font-size: 4.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: 10px double var(--border-color);
+    font-family: 'Libre Baskerville', serif;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0; /* Sticks at the top of the viewport */
+    background-color: white; /* Add background color if needed */
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+  
+
+/* search bar */
+#search_list {
+    position: absolute;
+    margin-left: 230px;
+    z-index: 1000; /* Higher z-index to float on top */
+    width: 50%; /* Match the width of the search box */
+    background-color: #ffffff; /* White background for the dropdown */
+    border: 1px solid #f8f8f8; /* Border around the dropdown */
+    border-top: none; /* Remove the top border to blend with the input box */
+    max-height: 300px; /* Max height for the dropdown */
+    overflow-y: auto; /* Scrollable if there are too many suggestions */
+    display: none; /* Initially hidden */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Each suggestion item styling */
+#search_list table {
+    width: 50%; /* Full width table */
+    margin: 0; /* No margin */
+    display: inline-block;
+}
+
+#search_list table tbody tr {
+    cursor: pointer; /* Pointer cursor for clickable effect */
+}
+
+#search_list table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Adjust search input box */
+.form-control {
+    position: relative;
+    display: inline-block;
+    font: 1em "Libre Baskerville", serif;
+    text-align: left;
+    padding-left: 10px;
+    width: 30%;
+    height: 50px;
+    margin-left: 230px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #d8d8d8;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+/* new notes */
+.button_plus {
+    position: fixed; /* Fixed position to keep it in place during scroll */
+    bottom: 50px; /* Distance from the bottom of the screen */
+    right: 50px; /* Distance from the right of the screen */
+    width: 100px; /* Adjust width */
+    height: 100px; /* Adjust height */
+    background: #ffffff;
+    cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 10%; /* Make the button circular */
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.button_plus:before,
+.button_plus:after {
+    content: "";
+    position: absolute;
+    background: #000000;
+    transition: 0.2s;
+}
+
+/* Horizontal line */
+.button_plus:after {
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+/* Vertical line */
+.button_plus:before {
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 4px;
+    top: 50%;
+    left: 50%;
+}
+
+/* On hover, lines turn white */
+.button_plus:hover:before,
+.button_plus:hover:after {
+    background: #d8d8d8;
+}
+
+.button_plus:hover {
+    background-color: #000000;
+    transition: 0.2s;
+}
+
+/* note date */
+.date {
+    font: 1em "PT Serif Mono", monospace;
+    text-align: center;
+    width: 280px;
+    margin: 20px auto;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+/* All note container */
+.columns {
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10px;
+    border-top: 3px solid var(--border-color);
+}
+
+.columns > div {
+    position: relative; /* Ensure the child kebab icon is positioned relative to this container */
+    flex: 1 1 calc(25% - 40px); /* Four columns */
+    margin: 10px;
+    padding: 15px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.columns div p {
+    font-family: "PT Serif", sans-serif;
+    text-align: left;
+    margin: 0;
+    padding: 5px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+    height: auto;
+}
+
+.content:hover {
+    background-color: var(--content-bg-hover);
+}
+
+/* note title */
+.noteTitle {
+    font-size: 2.5em;
+    font-family: "Libre Baskerville", serif;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h1:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.04em;
+    transition: all 0.5s ease-out;
+}
+
+/* note text */
+
+.text {
+    border: none;
+}
+
+/* kebab menu */
+.kebab {
+    cursor: pointer;
+    position: absolute; /* Absolute positioning inside the column */
+    top: 10px; /* Adjusts distance from the top */
+    right: 10px; /* Adjusts distance from the right */
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+
+.kebab figure {
+    width: 4px;
+    height: 4px;
+    border-radius: 5px;
+    background: #242424;
+    margin: 4px 0;
+}
+
+.middle {
+    transition: all 0.25s cubic-bezier(0.72, 1.2, 0.71, 0.72);
+    transform: scale(1);
+    position: relative;
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16),
+        0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+    -webkit-filter: blur(0.1px);
+    filter: blur(0.1px);
+}
+
+.middle.active {
+    transform: scale(5.5);
+    transition: all 0.25s cubic-bezier(0.32, 2.04, 0.85, 0.54);
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16),
+        0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.cross {
+    position: absolute;
+    top: 50%; /* Move to 50% of the parent’s height */
+    left: 50%; /* Move to 50% of the parent’s width */
+    transform: translate(-50%, -50%) scale(0); /* Center the cross and scale it */
+    margin-top: -1px;
+    font-family: "Libre Baskerville", serif;
+    color: white;
+    transition: all 0.2s cubic-bezier(0.72, 1.2, 0.71, 0.72);
+    font-size: 14px;
+    user-select: none;
+}
+
+.cross.active {
+    transform: translate(-50%, -50%) scale(1); /* Scale up on active */
+    transition: all 0.15s cubic-bezier(0.32, 2.04, 0.85, 0.54);
+}
+
+h1,
+a,
+li {
+    font-family: "Libre Baskerville", serif;
+}
+
+dropdown a,
+li {
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav {
+    margin-left: 20%;
+}
+.nav > li {
+    display: inline-block;
+    padding: 1em 18px;
+    cursor: pointer;
+}
+.nav > li:hover {
+    background: #ebebeb;
+}
+
+.dropdown {
+    display: none; /* Hidden initially */
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 3em;
+    transition: all 0.25s ease-out;
+    transform: scale(0);
+    transform-origin: 100% 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+.dropdown li {
+    display: block;
+    width: 100%;
+}
+.dropdown li a {
+    width: 100%;
+    padding: 1em 18px;
+    display: inline-block;
+    white-space: pre;
+    box-sizing: border-box;
+}
+.dropdown li a:hover {
+    background: #ebebeb;
+}
+.dropdown:hover ul {
+    transform: scale(1);
+}
+
+.dropdown.active {
+    display: block; /* Show when active */
+    transform: scale(1);
+    transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
+}
+.follow {
+    overflow: hidden;
+    width: 42px;
+    height: 42px;
+    border-radius: 50px;
+    background: #03a9f4;
+    display: block;
+    margin: 300px auto 0;
+    white-space: nowrap;
+    padding: 13px;
+    box-sizing: border-box;
+    color: white;
+    transition: all 0.2s ease;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.follow i {
+    margin-right: 20px;
+    transition: margin-right 0.2s ease;
+}
+.follow:hover {
+    width: 134px; /* Expands on hover */
+    transition: width 0.2s ease; /* Specify width for hover */
+}
+.follow:hover i {
+    margin-right: 10px;
+}
+
+/* The side navigation menu */
+.sidebar {
+    border-right:1px solid #555;
+    padding: 0;
+    width: 200px;
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    z-index: 10; /* Ensures sidebar stays above content */
+}
+
+/* Sidebar links */
+.sidebar a {
+    margin-top: 50px;
+    text-align: left;
+    display: block;
+    color: black;
+    margin: 10px;
+    padding: 16px;
+    text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: #04aa6d;
+    color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.main-content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+    z-index: 1; /* Places content behind the sidebar when necessary */
+    position: relative;
+}
+
+.delete {
+    border: none;
+}
+
+#footer {
+    position: sticky;
+    padding: 5px;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: rgb(55, 61, 55);
+    color: white;
+    font-size: 30px;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically (if needed) */
+}
+
+/* Three columns layout for screens between 1024px and 1279px */
+@media only screen and (max-width: 1279px) {
+    .columns > div {
+        flex: 1 1 calc(33.33% - 40px); /* Three columns */
+    }
+
+ 
+
+}
+
+/* Two columns layout for screens between 700px and 1023px */
+@media only screen and (max-width: 1023px) {
+    .columns > div {
+        flex: 1 1 calc(50% - 40px); /* Two columns */
+    }
+
+    .content {
+        font-size: 0.5rem; 
+    }
+
+}
+
+/* On screens that are less than 699px wide, position the sidebar as a footer */
+@media screen and (max-width: 975px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        color: #d1d1d1;
+        background-color: #333; /* Optional styling */
+        z-index: 10;
+        display: flex;
+        justify-content: center; /* Centers the content horizontally */
+        align-items: center; /* Centers the content vertically (if needed) */
+    }
+    .sidebar a {
+        color: #d1d1d1;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        padding: 10px;
+    }
+    div.main-content {
+        margin-bottom: 50px; /* Adds spacing above the sidebar */
+        z-index: 1; /* Ensures content can scroll behind the sidebar */
+    }
+
+    .columns > div {
+        flex: 1 1 calc(100% - 40px); /* One column */
+    }
+    .columns {
+        margin-left: 0;
+    }
+
+    .form-control {
+        margin-left: 30px;
+        font-size: 1em;
+        width: 50%;
+        height: 50px;
+    }
+    #search_list {
+        position: absolute;
+        margin-left: 30px;
+    }
+
+    .content {
+        font-size: smaller;
+    }
+}
+
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 775px) {
+    .button_plus {
+        position: fixed; /* Fixed position to keep it in place during scroll */
+        bottom: 90ppx; /* Distance from the bottom of the screen */
+        right: 50px; /* Distance from the right of the screen */
+        width: 100px; /* Adjust width */
+        height: 100px; /* Adjust height */
+    }
+
+    .sidebar a span { /* Hide the text but keep the icons */
+        display: none;
+    }
+    
+    .sidebar a i { /* Ensure that icons (e.g., from FontAwesome) are visible */
+        font-size: 30px; /* Adjust size as necessary */
+        color: #d1d1d1;
+    }
+
+    .button_plus {
+        position: fixed; /* Fixed position to keep it in place during scroll */
+        bottom: 90px; /* Distance from the bottom of the screen */
+        right: 50px; /* Distance from the right of the screen */
+        width: 80px; /* Adjust width */
+        height: 80px; /* Adjust height */
+    }
+
+    .topnav .search-container {
+        float: none;
+    }
+    .topnav a,
+    .topnav input[type="text"],
+    .topnav .search-container button {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+    .topnav input[type="text"] {
+        border: 1px solid #ccc;
+    }
+
+    .content {
+        font-size: smaller;
+    }
+
+}
+
+
+
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 585px) {
+    .title {
+        font-size: 70px;
+    }
+    .follow {
+        margin: 400px auto 0;
+    }
+}
+
+@media screen and (max-width: 383px) {
+    .title {
+        font-size: 60px;
+    }
+
+    .follow {
+        margin: 400px auto 0;
+    }
+
+    .form-control {
+        margin-left: 30px;
+        font-size: .5em;
+        width: 50%;
+        height: 30px;
+    }
+
+    .columns {
+       font-size: small;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        color: #d1d1d1;
+        background-color: #333; /* Optional styling */
+        z-index: 10;
+        display: flex;
+        justify-content: center; /* Centers the content horizontally */
+        align-items: center; /* Centers the content vertically (if needed) */
+    }
+    .sidebar a {
+        color: #d1d1d1;
+        font-size: 10px;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        padding: 10px;
+    }
+
+  
+}

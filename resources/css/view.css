@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=PT+Serif:wght@400;700&display=swap');
+
+:root {
+  --border-color: black;
+
+}
+
+body {
+  font-family: 'PT Serif', serif;
+  background-color: var(--background-color);
+  background-image: url("https://i.imgur.com/https://www.fontspace.com/typewriter-inked-font-f85473.png");
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 4.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 10px double var(--border-color);
+  font-family: 'Libre Baskerville', serif;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0; /* Sticks at the top of the viewport */
+  background-color: white; /* Add background color if needed */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+
+
+.date {
+  font: 1em 'PT Serif Mono', monospace;
+  text-align: center;
+  width: 280px;
+  margin: 20px auto;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10p;
+  margin-left: 200px;
+  padding: 0 10px;
+  
+}
+
+.view > div {
+  flex: 1 1 calc(25% - 40px); /* Four columns */
+  margin: 10px;
+  padding: 15px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.view div p {
+  font-family: 'PT Serif', sans-serif;
+  text-align: left;
+  margin: 0;
+  padding: 5px 0;
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  height: 800px;
+  padding: 10px;
+  border: none;
+  background-color: #ffffff;
+  font-size:15px;
+}
+
+
+h1 {
+  font-size: 2.5em;
+  font-family: 'Libre Baskerville', serif;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.scroll-container {
+  resize: none;
+  width: 80%;
+  height: 800px;
+  border: none;
+  background-color: rgb(235, 234, 231);
+  /* this displays creates a scrollbar on the element only when the content exceeds the max height of the element */
+  overflow-y: auto;
+  /* this displays creates a scrollbar on the element at any height */
+/*   overflow-y: scroll; */
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.content-footer {
+  position: relative;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.footer {
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 5px 0;
+  border-top: 3px double var(--border-color);
+  border-bottom: 3px double var(--border-color);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+
+/* The side navigation menu */
+.sidebar {
+ margin: 0;
+  width: 200px;
+  background-color: white;
+  position: fixed;
+  display: block;
+  height: 100%;
+  overflow: auto;
+  z-index: 10; /* Ensures sidebar stays above content */
+  left: 0; /* Aligns the sidebar to the right side */
+}
+
+
+/* Sidebar links */
+.sidebar a {
+  margin-top: 50px;
+  text-align: left;
+  display: block;
+  color: black;
+  margin: 10px;
+  padding: 16px;
+  text-decoration: none;
+ 
+}
+
+
+
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #ADADAD;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.main-content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+  z-index: 1; /* Places content behind the sidebar when necessary */
+  position: relative;
+}
+
+#footer {
+  position: sticky;
+  padding: 5px;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: rgb(55, 61, 55);
+  color: white;
+  font-size: 30px;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically (if needed) */
+}
+
+/* Three columns layout for screens between 1024px and 1279px */
+@media only screen and (max-width: 1279px) {
+  .columns > div {
+      flex: 1 1 calc(33.33% - 40px); /* Three columns */
+  }
+
+
+
+}
+
+/* Two columns layout for screens between 700px and 1023px */
+@media only screen and (max-width: 1023px) {
+  .columns > div {
+      flex: 1 1 calc(50% - 40px); /* Two columns */
+  }
+
+}
+
+/* On screens that are less than 699px wide, position the sidebar as a footer */
+@media screen and (max-width: 975px) {
+  .sidebar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      color: #d1d1d1;
+      background-color: #333; /* Optional styling */
+      z-index: 10;
+      display: flex;
+      justify-content: center; /* Centers the content horizontally */
+      align-items: center; /* Centers the content vertically (if needed) */
+  }
+  .sidebar a {
+      color: #d1d1d1;
+      text-align: center;
+      float: none;
+      display: inline-block;
+      padding: 10px;
+  }
+  div.main-content {
+      margin-bottom: 50px; /* Adds spacing above the sidebar */
+      z-index: 1; /* Ensures content can scroll behind the sidebar */
+  }
+
+  .columns > div {
+      flex: 1 1 calc(100% - 40px); /* One column */
+  }
+  .columns {
+      margin-left: 0;
+  }
+
+  .form-control {
+      margin-left: 30px;
+      font-size: 1em;
+      width: 50%;
+      height: 50px;
+  }
+  #search_list {
+      position: absolute;
+      margin-left: 30px;
+  }
+}
+
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 775px) {
+  .button_plus {
+      position: fixed; /* Fixed position to keep it in place during scroll */
+      bottom: 90ppx; /* Distance from the bottom of the screen */
+      right: 50px; /* Distance from the right of the screen */
+      width: 100px; /* Adjust width */
+      height: 100px; /* Adjust height */
+  }
+
+  .sidebar a span { /* Hide the text but keep the icons */
+      display: none;
+  }
+  
+  .sidebar a i { /* Ensure that icons (e.g., from FontAwesome) are visible */
+      font-size: 30px; /* Adjust size as necessary */
+      color: #d1d1d1;
+  }
+
+  .button_plus {
+      position: fixed; /* Fixed position to keep it in place during scroll */
+      bottom: 90px; /* Distance from the bottom of the screen */
+      right: 50px; /* Distance from the right of the screen */
+      width: 80px; /* Adjust width */
+      height: 80px; /* Adjust height */
+  }
+
+  .topnav .search-container {
+      float: none;
+  }
+  .topnav a,
+  .topnav input[type="text"],
+  .topnav .search-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+  }
+  .topnav input[type="text"] {
+      border: 1px solid #ccc;
+  }
+
+}
+
+
+
+/* On screens that are less than 800px wide, adjust the margin of the follow section*/
+@media screen and (max-width: 585px) {
+  .title {
+      font-size: 70px;
+  }
+  .follow {
+      margin: 400px auto 0;
+  }
+}
+
+@media screen and (max-width: 383px) {
+  .title {
+      font-size: 60px;
+  }
+
+  .follow {
+      margin: 400px auto 0;
+  }
+
+  .form-control {
+      margin-left: 30px;
+      font-size: .5em;
+      width: 50%;
+      height: 30px;
+  }
+
+  .columns {
+     font-size: small;
+  }
+
+  .sidebar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      color: #d1d1d1;
+      background-color: #333; /* Optional styling */
+      z-index: 10;
+      display: flex;
+      justify-content: center; /* Centers the content horizontally */
+      align-items: center; /* Centers the content vertically (if needed) */
+  }
+  .sidebar a {
+      color: #d1d1d1;
+      font-size: 10px;
+      text-align: center;
+      float: none;
+      display: inline-block;
+      padding: 10px;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 1279px) {
+  .columns > div {
+    flex: 1 1 calc(33.33% - 40px); /* Three columns */
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .columns > div {
+    flex: 1 1 calc(50% - 40px); /* Two columns */
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .columns > div {
+    flex: 1 1 calc(100% - 40px); /* One column */
+  }
+}
+/* nav */
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+      float: none;
+  }
+  .topnav a,
+  .topnav input[type="text"],
+  .topnav .search-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+  }
+  .topnav input[type="text"] {
+      border: 1px solid #ccc;
+  }
+}
